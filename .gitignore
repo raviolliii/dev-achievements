@@ -1,3 +1,9 @@
+# TODO: temp files - remove later
+ast_list.txt
+
+# MacOS files
+.DS_STORE
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
