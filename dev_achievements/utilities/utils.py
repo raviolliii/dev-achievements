@@ -1,4 +1,5 @@
 import json
+import os
 
 from dev_achievements.utilities.constants import STORE_PATH, DEFAULT_STORE
 
@@ -42,7 +43,11 @@ def load_store(field=None):
     Returns:
         The whole data store, or the data in the field if one is given.
     """
-    store = load_json(STORE_PATH) or DEFAULT_STORE
+    store = DEFAULT_STORE
+    # load in store if saved
+    if os.path.isfile(STORE_PATH):
+        store = load_json(STORE_PATH)
+    # get field if specified
     if field is not None:
         return store.get(field, None)
     return store
@@ -80,9 +85,9 @@ def bordered(text):
     """
     lines = text.splitlines()
     width = max([len(s) for s in lines])
-    res = ['┌' + ('─' * (width + 4)) + '┐']
-    for s in [' ', *lines, ' ']:
+    res = ['┌' + ('─' * (width + 2)) + '┐']
+    for s in lines:
         sub = (s + (' ' * width))[:width]
-        res.append('│  ' + sub + '  │')
-    res.append('└' + ('─' * (width + 4)) + '┘')
+        res.append('│ ' + sub + ' │')
+    res.append('└' + ('─' * (width + 2)) + '┘')
     return '\n'.join(res)

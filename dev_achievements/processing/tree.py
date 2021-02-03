@@ -22,8 +22,8 @@ class AchievementTree:
         def _create_node(ach):
             # helper to create achievement with unlocked state and handler
             unlocked = ach.__name__ in unlocked_ach
-            handle_unlock = create_ach_unlock_handler(ach)
-            return ach(unlocked=unlocked, on_unlock=handle_unlock)
+            save_ach = lambda: save_completed(ach.__name__)
+            return ach(unlocked=unlocked, on_unlock=save_ach)
         
         self.nodes = [_create_node(a) for a in Achievement.subclasses()]
         # set node dependencies as references to initialized nodes
@@ -47,19 +47,3 @@ class AchievementTree:
             return par_unlocked and is_locked
         # filter nodes to unlockable ones
         return [n for n in self.nodes if _is_unlockable(n)]
-
-
-def create_ach_unlock_handler(ach):
-    """ Creates and returns a function handler for Achievement unlocks.
-    Shows the Achievement unlock message, and saves it to the store.
-
-    Args:
-        ach (Achievement): Achievement to create handler for
-    
-    Returns:
-        function: Created handler
-    """
-    def _handler():
-        print(ach().unlock_message)
-        save_completed(ach.__name__)
-    return _handler

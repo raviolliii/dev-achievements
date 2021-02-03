@@ -3,6 +3,7 @@ import os
 import sys
 
 from dev_achievements.processing.visitor import Visitor
+from dev_achievements.utilities.utils import bordered
 
 
 # TODO proper package import
@@ -20,7 +21,10 @@ def process_tree(tree):
     """
     v = Visitor()
     v.visit(tree)
-    v.check_achievements()
+    unlocked = v.check_achievements()
+    if unlocked:
+        text = '\n'.join(a.unlock_message for a in unlocked)
+        print('\n' + bordered(text) + '\n')
     return
 
 
@@ -50,7 +54,9 @@ def process_file(file_path):
     process_tree(tree)
     return
 
+
 # run the whole Achievement process on package import
+# if the passed script path exists
 if __name__ != '__main__':
     if len(sys.argv) > 0 and os.path.isfile(sys.argv[0]):
         process_file(sys.argv[0])
