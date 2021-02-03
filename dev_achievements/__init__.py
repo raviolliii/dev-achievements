@@ -1,10 +1,10 @@
 import ast
+import os
 import sys
 
-from achievements.visitor import Visitor
+from dev_achievements.processing.visitor import Visitor
 
 
-# TODO use all nodes instead of one
 # TODO proper package import
 # TODO cli commands for progress, etc.
 # TODO project structure for pypi
@@ -39,7 +39,7 @@ def build_tree(file_path):
     return tree
 
 
-def main(file_path):
+def process_file(file_path):
     """ Builds an AST syntax tree and visits each node to 
     process for Achievements.
 
@@ -50,7 +50,7 @@ def main(file_path):
     process_tree(tree)
     return
 
-
 # run the whole Achievement process on package import
 if __name__ != '__main__':
-    main(sys.argv[0])
+    if len(sys.argv) > 0 and os.path.isfile(sys.argv[0]):
+        process_file(sys.argv[0])

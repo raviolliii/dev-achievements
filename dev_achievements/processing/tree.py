@@ -1,5 +1,5 @@
-from achievements.achievements import *
-from utilities.utils import load_store, save_completed
+from dev_achievements.achievements import *
+from dev_achievements.utilities.utils import load_store, save_completed
 
 
 class AchievementTree:
@@ -60,6 +60,6 @@ def create_ach_unlock_handler(ach):
         function: Created handler
     """
     def _handler():
-        print(f'>> Unlocked {ach.__name__}')
+        print(ach().unlock_message)
         save_completed(ach.__name__)
     return _handler

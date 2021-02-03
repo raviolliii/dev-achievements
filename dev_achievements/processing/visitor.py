@@ -1,6 +1,6 @@
 import ast
 
-from achievements.tree import AchievementTree
+from dev_achievements.processing.tree import AchievementTree
 
 
 class Visitor(ast.NodeVisitor):
@@ -32,10 +32,9 @@ class Visitor(ast.NodeVisitor):
     def check_achievements(self):
         """ Checks and unlocks all possible Achievements. """
         changed = True
+        check_ach = lambda ach: ach.check(self.table)
         while changed:
-            changed = False
             # check if any Achievements have been unlocked
-            for ach in self.ach_tree.queue:
-                changed = changed or ach.check(self.table)
+            checks = [check_ach(a) for a in self.ach_tree.queue]
+            changed = any(checks)
         return
-

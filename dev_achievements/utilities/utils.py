@@ -1,6 +1,6 @@
 import json
 
-from utilities.constants import STORE_PATH, DEFAULT_STORE
+from dev_achievements.utilities.constants import STORE_PATH, DEFAULT_STORE
 
 
 def load_json(file_path):
