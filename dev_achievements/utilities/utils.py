@@ -1,5 +1,6 @@
 import json
 import os
+import pathlib
 
 from dev_achievements.utilities.constants import STORE_PATH, DEFAULT_STORE
 
@@ -56,9 +57,14 @@ def load_store(field=None):
 def write_store(data):
     """ Writes given data to the Achievement store.
 
+    Creates the full nested directory path of STORE_DIR
+    if it doesn't exist, before writing/creating the store.
+
     Args:
         data (dict): updated Achievement store to write
     """
+    store_dir = os.path.dirname(STORE_PATH)
+    pathlib.Path(store_dir).mkdir(parents=True, exist_ok=True)
     return write_json(STORE_PATH, data)
 
 
