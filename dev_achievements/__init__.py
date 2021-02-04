@@ -6,10 +6,8 @@ from dev_achievements.processing.visitor import Visitor
 from dev_achievements.utilities.utils import bordered
 
 
-# TODO proper package import
-# TODO cli commands for progress, etc.
-# TODO project structure for pypi
-# TODO stacked achievement unlock messages
+# package version
+__version__ = '1.0.0'
 
 
 def process_tree(tree):
