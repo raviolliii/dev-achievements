@@ -48,7 +48,7 @@ value:  6
 
 ### Usage
 
-1. Install the package with `pip install dev_achievements`
+1. Install the package with `pip install dev-achievements`
 2. Use `import dev_achievements` at the top of your script
 3. Run your `python` script as normal
 
@@ -67,5 +67,5 @@ value:  6
 
 
 ### Future plans and contributing
-1. The bare bones achievements are currently implemented (using `"hello world"`, `for` loops, `lists`, `functions`, etc.) - more achievements are in development (see issue [#1](#1))
+1. The bare bones achievements are currently implemented (using `"hello world"`, `for` loops, `lists`, `functions`, etc.) - more achievements are in development (see issue [#1](https://github.com/raviolliii/dev-achievements/issues/1))
 1. More details on how to contribute (along with code docs to help with the development process) are coming soon
