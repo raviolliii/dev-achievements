@@ -1,3 +1,7 @@
+# achievements.py
+# ---------------
+# Contains all implemented Achievements.
+
 import ast
 from abc import abstractmethod
 
@@ -8,6 +12,9 @@ from abc import abstractmethod
 
 class Achievement:
     """ Base Achievement with common unlock and dependency fields.
+
+    New Achievements should sublass this base, implementing the 
+    _check_condition method to specify when it should be unlocked.
 
     Attributes:
         unlocked (bool): unlock state
@@ -119,11 +126,6 @@ class Achievement:
 
 # All unlockable achievements
 # ---------------------------
-
-# file io
-# modules
-# exceptions
-# type hints
 
 
 class SampleAchievement(Achievement):

@@ -1,3 +1,8 @@
+# visitor.py
+# ----------
+# Contains utilities for traversing and processing a built ast.AST 
+# syntax tree (for building custom ast.AST table, etc.).
+
 import ast
 
 from dev_achievements.processing.tree import AchievementTree

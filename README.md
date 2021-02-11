@@ -48,9 +48,14 @@ value:  6
 
 ### Usage
 
+To install and use:
 1. Install the package with `pip install dev-achievements`
-2. Use `import dev_achievements` at the top of your script
-3. Run your `python` script as normal
+1. Use `import dev_achievements` at the top of your script
+1. Run your `python` script as normal
+
+To uninstall:
+1. Uninstall the package with `pip uninstall dev-achievements`
+1. Optionally, delete the directory `~/.dev_achievements` to remove any achievement progress. Keep this directory to save progress through installs.
 
 
 <br/>

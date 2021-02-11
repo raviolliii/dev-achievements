@@ -1,3 +1,8 @@
+# __init__.py
+# -----------
+# Primary executor of dev_achievements. Runs syntax processing
+# and Achievement checking on the file that imported the package.
+
 import ast
 import os
 import sys
@@ -7,7 +12,7 @@ from dev_achievements.utilities.utils import bordered
 
 
 # package version
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 
 
 def process_tree(tree):

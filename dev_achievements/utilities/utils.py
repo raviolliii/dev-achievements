@@ -1,3 +1,8 @@
+# utils.py
+# --------
+# Contains a bunch of utility functions to make life easier
+# throughout the rest of the codebase.
+
 import json
 import os
 import pathlib

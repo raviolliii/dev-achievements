@@ -1,3 +1,8 @@
+# tree.py
+# -------
+# Contains utilities for building and traversing an Achievement 
+# tree (for finding Achievements to unlock next, etc.).
+
 from dev_achievements.achievements import *
 from dev_achievements.utilities.utils import load_store, save_completed
 
